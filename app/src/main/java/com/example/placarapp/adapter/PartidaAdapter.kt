@@ -1,13 +1,14 @@
 package com.example.placarapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.placarapp.databinding.MainItemBinding
 import com.example.placarapp.domain.ListPartida
+import com.example.placarapp.ui.ControlarPartida
 
-class PartidaAdapter(private val dataSet: List<ListPartida>, private val onClickListener: () -> Unit = {}) : RecyclerView.Adapter<PartidaAdapter.ViewHolder>() {
-
+class PartidaAdapter(private val dataSet: List<ListPartida>, val onClickListener: () -> Unit = {}) : RecyclerView.Adapter<PartidaAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: MainItemBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -30,15 +31,14 @@ class PartidaAdapter(private val dataSet: List<ListPartida>, private val onClick
         //val card: LinearLayout = viewHolder.itemView.findViewById(R.id.item_color_container)
 
 
-        viewHolder.itemView.setOnClickListener {
-           onClickListener
+       viewHolder.itemView.setOnClickListener{
 
-        }
+       }
+
 
     }
 
     override fun getItemCount()= dataSet.size
-
 
 
 }

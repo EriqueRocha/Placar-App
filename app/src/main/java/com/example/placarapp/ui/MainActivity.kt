@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.srlListPartida.setOnRefreshListener { findListPartida() }
 
-
-
         findListPartida()
 
         cadastrarPartida()
@@ -51,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
                     binding.rvMain.adapter = state.data?.let { PartidaAdapter(it) }
 
-                    state.data?.let { dataSet.add(it) }
+                    state.data?.let { dataSet.addAll(it) }
 
                     binding.rvMain.adapter?.notifyDataSetChanged()
 
