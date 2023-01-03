@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
                     binding.rvMain.adapter = state.data?.let { PartidaAdapter(it) }
 
-                    state.data?.let { dataSet.addAll(it) }
+                    state.data?.let { dataSet.addAll(it)}
 
                     binding.rvMain.adapter?.notifyDataSetChanged()
 
