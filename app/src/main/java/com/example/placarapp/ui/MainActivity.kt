@@ -47,7 +47,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 is State.Success -> {
 
-                    state.data?.let { dataSet.add(it)}
+                    dataSet.clear()
+
+                    state.data?.let { dataSet.addAll(it)}
 
                     binding.rvMain.adapter?.notifyDataSetChanged()
 
