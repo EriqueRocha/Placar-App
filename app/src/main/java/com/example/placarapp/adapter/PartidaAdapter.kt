@@ -1,19 +1,17 @@
 package com.example.placarapp.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.placarapp.databinding.MainItemBinding
 import com.example.placarapp.domain.ListPartida
-import com.example.placarapp.ui.ControlarPartida
 
 class PartidaAdapter(private val dataSet: List<ListPartida>, val onClickListener: () -> Unit = {}) : RecyclerView.Adapter<PartidaAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: MainItemBinding): RecyclerView.ViewHolder(binding.root){
 
                   //ligação entre a view e a entidade de dominio
-        fun bind(item: ListPartida) = with(binding) {                    //função que recebe o elemento em tempo de bind - "with" faz com que todos dentro da função tenão acesso ao elemento de bind
+        fun bind(item: ListPartida) = with(binding) {  //função que recebe o elemento em tempo de bind - "with" faz com que todos dentro da função tenão acesso ao elemento de bind
             txtNameTime1.text = item.time1.nome //dizendo qual entidade serve para cada modelo
             txtNameTime2.text = item.time2.nome
             }
@@ -32,7 +30,7 @@ class PartidaAdapter(private val dataSet: List<ListPartida>, val onClickListener
 
 
        viewHolder.itemView.setOnClickListener{
-
+            onClickListener()
        }
 
 
