@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
-    private val viewModel by viewModels<PlacarStatementViewModel>() //gera a instancia dos viewmodels
+    private val viewModel by viewModels<PlacarStatementViewModel>() //gera a instancia dos viewModels
 
     private val dataSet = mutableListOf<ListPartida>()
 
@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvMain.layoutManager = LinearLayoutManager(this)
 
         binding.rvMain.adapter = PartidaAdapter(dataSet){
-            Intent(this@MainActivity, ControlarPartida::class.java)
+            val intent = Intent(this@MainActivity, ControlarPartida::class.java)
+            startActivity(intent)
         }
 
         binding.srlListPartida.setOnRefreshListener { findListPartida() }
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 is State.Success -> {
 
-                    dataSet.clear()
+                    dataSet.clear() //limpa antes de adicionar novamente para evitar repetição
 
                     state.data?.let { dataSet.addAll(it)}
 
